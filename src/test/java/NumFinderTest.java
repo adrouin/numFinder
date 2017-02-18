@@ -53,4 +53,51 @@ public class NumFinderTest {
 
     }
 
+    @Test
+    public void add_zero_to_list_and_sort() {
+
+        ArrayList<Integer> values = new ArrayList<Integer>();
+        values.add(45);
+        values.add(-1);
+        values.add(23);
+        values.add(-9);
+
+        ArrayList<Integer> expectedSortedValues = new ArrayList<Integer>();
+        expectedSortedValues.add(-9);
+        expectedSortedValues.add(-1);
+        expectedSortedValues.add(0);
+        expectedSortedValues.add(23);
+        expectedSortedValues.add(45);
+
+        numFinder.addZeroAndSort(values);
+
+        Assert.assertEquals(expectedSortedValues, values);
+    }
+
+    @Test
+         public void find_index_of_zero_in_list() {
+
+        ArrayList<Integer> values = new ArrayList<Integer>();
+        values.add(23);
+        values.add(-9);
+        values.add(0);
+        values.add(45);
+        values.add(-1);
+
+        Assert.assertEquals(2, numFinder.findIndexOfZeroValue(values));
+
+    }
+
+    @Test
+    public void find_index_of_zero_in_list_without_zero() {
+
+        ArrayList<Integer> values = new ArrayList<Integer>();
+        values.add(23);
+        values.add(-9);
+        values.add(45);
+        values.add(-1);
+
+        Assert.assertEquals(-1, numFinder.findIndexOfZeroValue(values));
+
+    }
 }

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by adr on 18/02/2017.
@@ -25,6 +26,7 @@ public class NumFinder {
             // Check if numbers are between MINIMUM_VALUE and MAXIMUM_VALUE
             this.areAuthorizedNumbers(values);
 
+
         }
 
         return 0;
@@ -42,4 +44,29 @@ public class NumFinder {
         }
     }
 
+    /**
+     * Add zero to list and sort it
+     */
+    protected void addZeroAndSort(ArrayList<Integer> values) {
+
+        values.add(0);
+        Collections.sort(values);
+    }
+
+    /**
+     * Find index of zero value
+     * If zero is not present return -1
+     */
+    protected int findIndexOfZeroValue(ArrayList<Integer> values) {
+
+        int index = -1;
+
+        for (int i=0; i<values.size(); i++) {
+            if (values.get(i) == 0) {
+                index = i;
+            }
+        }
+
+        return index;
+    }
 }
