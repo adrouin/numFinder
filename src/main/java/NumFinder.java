@@ -21,16 +21,39 @@ public class NumFinder {
      */
     public int findClosestZero(ArrayList<Integer> values) throws IllegalArgumentException{
 
-        if (values != null) {
+        if (this.notEmptyAndNotNull(values)) {
 
             // Check if numbers are between MINIMUM_VALUE and MAXIMUM_VALUE
             this.areAuthorizedNumbers(values);
 
+            // Add zero to the list and sort it
+            this.addZeroAndSort(values);
+
+            // Find the zero index
+            int zeroIndex = this.findIndexOfZeroValue(values);
+
+            // return the closest to zero, the two parameter is the two values next to 0
+            return this.findClosestZero(
+
+                    this.findValueBeforeIndex(values, zeroIndex),
+                    this.findValueAfterIndex(values, zeroIndex)
+
+            );
 
         }
 
         return 0;
     }
+
+    /**
+     * Return true if list is not empty and not null
+     * @param values
+     * @return
+     */
+    private boolean notEmptyAndNotNull(ArrayList<Integer> values) {
+        return values != null && !values.isEmpty();
+    }
+
 
     /**
      * Check if numbers are between MINIMUM_VALUE and MAXIMUM_VALUE
@@ -46,12 +69,17 @@ public class NumFinder {
 
     /**
      * Add zero to list and sort it
+     * If list already contain 0 don't add it
      */
     protected void addZeroAndSort(ArrayList<Integer> values) {
 
-        values.add(0);
+        if (!values.contains(0)) {
+            values.add(0);
+        }
+
         Collections.sort(values);
     }
+
 
     /**
      * Find index of zero value

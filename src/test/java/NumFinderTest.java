@@ -22,7 +22,6 @@ public class NumFinderTest {
         Assert.assertEquals(0, numFinder.findClosestZero(null));
     }
 
-
     @Test
     public void minimum_value_is_negative_273() {
 
@@ -72,6 +71,17 @@ public class NumFinderTest {
         numFinder.addZeroAndSort(values);
 
         Assert.assertEquals(expectedSortedValues, values);
+    }
+
+    @Test
+    public void list_already_contain_zero_not_add_it() {
+
+        ArrayList<Integer> values = new ArrayList<Integer>();
+        values.add(0);
+
+        numFinder.addZeroAndSort(values);
+
+        Assert.assertEquals(1, values.size());
     }
 
     @Test
@@ -147,12 +157,36 @@ public class NumFinderTest {
     @Test
     public void find_value_in_list_after_index_not_exist() {
 
-        ArrayList<Integer> values = new ArrayList<Integer>();
-        values.add(1);
-        values.add(2);
-        values.add(3);
+        int firstValue = -10;
+        int secondValue = 5;
 
-        Assert.assertEquals(Integer.MAX_VALUE, numFinder.findValueAfterIndex(values, 2));
+        Assert.assertEquals(5, numFinder.findClosestZero(firstValue, secondValue));
+    }
+
+
+    @Test
+    public void find_closest_to_zero_value() {
+
+        ArrayList<Integer> values = new ArrayList<Integer>();
+        values.add(23);
+        values.add(-9);
+        values.add(45);
+        values.add(-1);
+
+        Assert.assertEquals(-1, numFinder.findClosestZero(values));
+    }
+
+    @Test
+    public void find_closest_to_zero_value_with_zero_in_list() {
+
+        ArrayList<Integer> values = new ArrayList<Integer>();
+        values.add(-7);
+        values.add(-4);
+        values.add(0);
+        values.add(9);
+        values.add(10);
+
+        Assert.assertEquals(-4, numFinder.findClosestZero(values));
     }
 
 }
