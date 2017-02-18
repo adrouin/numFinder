@@ -22,15 +22,24 @@ public class NumFinder {
 
         if (values != null) {
 
-            for (Integer value : values) {
-                if (value < MINIMUM_VALUE || value > MAXIMUM_VALUE) {
-                    throw new IllegalArgumentException(String.format(ILLEGAL_ARGUMENT, value, MINIMUM_VALUE, MAXIMUM_VALUE));
-                }
-            }
+            // Check if numbers are between MINIMUM_VALUE and MAXIMUM_VALUE
+            this.areAuthorizedNumbers(values);
 
         }
 
         return 0;
+    }
+
+    /**
+     * Check if numbers are between MINIMUM_VALUE and MAXIMUM_VALUE
+     * @param values number list
+     */
+    protected void areAuthorizedNumbers(ArrayList<Integer> values) {
+        for (Integer value : values) {
+            if (value < MINIMUM_VALUE || value > MAXIMUM_VALUE) {
+                throw new IllegalArgumentException(String.format(ILLEGAL_ARGUMENT, value, MINIMUM_VALUE, MAXIMUM_VALUE));
+            }
+        }
     }
 
 }

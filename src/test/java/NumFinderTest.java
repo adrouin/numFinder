@@ -30,7 +30,7 @@ public class NumFinderTest {
         values.add(-99999);
 
         try {
-            numFinder.findClosestZero(values);
+            numFinder.areAuthorizedNumbers(values);
             Assert.fail();
         } catch (IllegalArgumentException e) {
             Assert.assertEquals("Le nombre -99999 dans la liste n'est pas compris entre -273 et 5526", e.getMessage());
@@ -45,7 +45,7 @@ public class NumFinderTest {
         values.add(99999);
 
         try {
-            numFinder.findClosestZero(values);
+            numFinder.areAuthorizedNumbers(values);
             Assert.fail();
         } catch (IllegalArgumentException e) {
             Assert.assertEquals("Le nombre 99999 dans la liste n'est pas compris entre -273 et 5526", e.getMessage());
