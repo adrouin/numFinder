@@ -69,4 +69,44 @@ public class NumFinder {
 
         return index;
     }
+
+    /**
+     * Return the closest to zero value between 2 value
+     */
+    protected int findClosestZero(int firstValue, int secondValue) {
+
+        if (Math.abs(firstValue) < Math.abs(secondValue)) {
+            return firstValue;
+        } else {
+            return secondValue;
+        }
+
+    }
+
+    /**
+     * Return the value at index-1 of the list
+     * In case of IndexOutOfBounds return Integer.MIN_VALUE
+     */
+    protected int findValueBeforeIndex(ArrayList<Integer> values, int index) {
+
+        if (index-1 < 0) {
+            return Integer.MIN_VALUE;
+        } else {
+            return values.get(index-1);
+        }
+
+    }
+
+    /**
+     * Return the value at index+1 of the list
+     * In case of IndexOutOfBounds return Integer.MAX_VALUE
+     */
+    protected int findValueAfterIndex(ArrayList<Integer> values, int index) {
+
+        if(index+1 >= values.size()) {
+            return Integer.MAX_VALUE;
+        } else {
+            return values.get(index+1);
+        }
+    }
 }

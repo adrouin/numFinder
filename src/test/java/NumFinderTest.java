@@ -100,4 +100,59 @@ public class NumFinderTest {
         Assert.assertEquals(-1, numFinder.findIndexOfZeroValue(values));
 
     }
+
+    @Test
+    public void find_closest_zero_between_two_value() {
+
+        int firstValue = -10;
+        int secondValue = 5;
+
+        Assert.assertEquals(5, numFinder.findClosestZero(firstValue, secondValue));
+    }
+
+
+    @Test
+    public void find_value_in_list_before_index() {
+
+        ArrayList<Integer> values = new ArrayList<Integer>();
+        values.add(1);
+        values.add(2);
+        values.add(3);
+
+        Assert.assertEquals(1, numFinder.findValueBeforeIndex(values, 1));
+    }
+
+    @Test
+    public void find_value_in_list_before_index_not_exist() {
+
+        ArrayList<Integer> values = new ArrayList<Integer>();
+        values.add(1);
+        values.add(2);
+        values.add(3);
+
+        Assert.assertEquals(Integer.MIN_VALUE, numFinder.findValueBeforeIndex(values, 0));
+    }
+
+    @Test
+    public void find_value_in_list_after_index() {
+
+        ArrayList<Integer> values = new ArrayList<Integer>();
+        values.add(1);
+        values.add(2);
+        values.add(3);
+
+        Assert.assertEquals(3, numFinder.findValueAfterIndex(values, 1));
+    }
+
+    @Test
+    public void find_value_in_list_after_index_not_exist() {
+
+        ArrayList<Integer> values = new ArrayList<Integer>();
+        values.add(1);
+        values.add(2);
+        values.add(3);
+
+        Assert.assertEquals(Integer.MAX_VALUE, numFinder.findValueAfterIndex(values, 2));
+    }
+
 }
