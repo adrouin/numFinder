@@ -114,10 +114,10 @@ public class NumFinderTest {
     @Test
     public void find_closest_zero_between_two_value() {
 
-        int firstValue = -10;
-        int secondValue = 5;
+        int beforeZeroValue = -10;
+        int afterZeroValue = 5;
 
-        Assert.assertEquals(5, numFinder.findClosestZero(firstValue, secondValue));
+        Assert.assertEquals(5, numFinder.findClosestZero(beforeZeroValue, afterZeroValue));
     }
 
 
@@ -157,10 +157,10 @@ public class NumFinderTest {
     @Test
     public void find_value_in_list_after_index_not_exist() {
 
-        int firstValue = -10;
-        int secondValue = 5;
+        int beforeZeroValue = -10;
+        int afterZeroValue = 5;
 
-        Assert.assertEquals(5, numFinder.findClosestZero(firstValue, secondValue));
+        Assert.assertEquals(5, numFinder.findClosestZero(beforeZeroValue, afterZeroValue));
     }
 
 
@@ -189,4 +189,27 @@ public class NumFinderTest {
         Assert.assertEquals(-4, numFinder.findClosestZero(values));
     }
 
+
+    @Test
+    public void find_closest_to_zero_value_multiple_same_values() {
+
+        ArrayList<Integer> values = new ArrayList<Integer>();
+        values.add(-7);
+        values.add(-4);
+        values.add(-4);
+        values.add(4);
+        values.add(4);
+        values.add(9);
+
+        Assert.assertEquals(4, numFinder.findClosestZero(values));
+    }
+
+    @Test
+    public void find_closest_zero_between_two_value_negative_and_positive_identical() {
+
+        int beforeZeroValue = -10;
+        int afterZeroValue = 10;
+
+        Assert.assertEquals(10, numFinder.findClosestZero(beforeZeroValue, afterZeroValue));
+    }
 }

@@ -101,12 +101,12 @@ public class NumFinder {
     /**
      * Return the closest to zero value between 2 value
      */
-    protected int findClosestZero(int firstValue, int secondValue) {
+    protected int findClosestZero(int valueBeforeZero, int valueAfterZero) {
 
-        if (Math.abs(firstValue) < Math.abs(secondValue)) {
-            return firstValue;
+        if (Math.abs(valueBeforeZero) < Math.abs(valueAfterZero)) {
+            return valueBeforeZero;
         } else {
-            return secondValue;
+            return valueAfterZero;
         }
 
     }
